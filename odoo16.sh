@@ -74,7 +74,7 @@ if sudo apt install wkhtmltopdf ;then
 else
     echo "\n -----installation failed ----\n"
 fi
-if sudo -chown -R odoo16 /opt/odoo16 ;then
+if sudo chown -R odoo16 /opt/odoo16 ;then
   echo "\n permission added \n"
 else
     echo "\n permission denied \n"
