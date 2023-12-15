@@ -1,13 +1,13 @@
 ################################################################################################################################
 ################################################################################################################################
-$echo"\n
-    \n------               ####      ####         @@@@@@@@@          *****             *****       &&&&&&&&&&&&&&&&    ------\n
-    \n------               ####     ####         @@@@@@@@@@@          *****           *****        &&&&        &&&&    ------\n
-    \n------               ####    ####         @@@       @@@          *****         *****         &&&&        &&&&    ------\n
-    \n------               ###########         @@@         @@@          *****       *****          &&&&&&&&&&&&&&&&    ------\n
-    \n------               ####    ####       @@@@@@@@@@@@@@@@@          *****     *****           &&&&                ------\n
-    \n------               ####     ####      @@@           @@@           *************            &&&&                ------\n
-    \n------               ####      ####     @@@           @@@            ***********             &&&&                ------  \n"
+$echo"\n                                                                                                                       \n"
+$echo"\n------               ####      ####         @@@@@@@@@          *****             *****       &&&&&&&&&&&&&&&&    ------\n"
+$echo"\n------               ####     ####         @@@@@@@@@@@          *****           *****        &&&&        &&&&    ------\n"
+$echo"\n------               ####    ####         @@@       @@@          *****         *****         &&&&        &&&&    ------\n"
+$echo"\n------               ###########         @@@         @@@          *****       *****          &&&&&&&&&&&&&&&&    ------\n"
+$echo"\n------               ####    ####       @@@@@@@@@@@@@@@@@          *****     *****           &&&&                ------\n"
+$echo"\n------               ####     ####      @@@           @@@           *************            &&&&                ------\n"
+$echo"\n------               ####      ####     @@@           @@@            ***********             &&&&                ------\n"
 
 odoo="/etc/odoo.conf"
 odooservice="/etc/systemd/system/odoo16.service"
@@ -74,11 +74,9 @@ if sudo apt install wkhtmltopdf ;then
 else
     echo "\n -----installation failed ----\n"
 fi
-if sudo su - odoo16 ;then
-    echo "\n ----user changed ----\n"
-else
-    echo "\n ---- user not changed ----\n"
-    exit
+if sudo -chown -R odoo16 /opt/odoo16 ;then
+  echo "\n
+sudo su - odoo16 <<EOF
 fi
 if git clone https://github.com/odoo/odoo.git --depth 1 --branch 16.0 odoo16 ;then
     echo "\n ---- cloned successfully ---- \n"
@@ -114,11 +112,11 @@ if sudo mkdir /opt/odoo16/odoo16/custom-addons ;then
 else
     echo "\n ---- Directory creation failed ---- \n"
 if exit ;then
-    echo "\n ---- exited successfully ---- \n"
+    echo "\n ---- exit successfully ---- \n"
 else
-    echo "\n ---- exited failed ---- \n"
+    echo "\n ---- exit failed ---- \n"
 fi
-
+EOF
 if echo "$odoo_conf" | sudo tee "$odoo" > /dev/null ;then
         echo "\n ---- conf file created successfully ----\n" 
 else
