@@ -134,6 +134,6 @@ if echo "$odoo_service" | sudo tee "$odooservice" > /dev/null ;then
 else
         echo "\n ---- service file created failed ---- \n"
 fi
-sudo systemctl deamon-reload
+sudo systemctl daemon-reload
 sudo systemctl start odoo16
 sudo systemctl status odoo16
