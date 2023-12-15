@@ -76,7 +76,10 @@ else
 fi
 if sudo su - odoo16 ;then
     echo "\n ----user changed ----\n"
-EOF
+else
+    echo "\n ---- user not changed ----\n"
+    exit
+fi
 if git clone https://github.com/odoo/odoo.git --depth 1 --branch 16.0 odoo16 ;then
     echo "\n ---- cloned successfully ---- \n"
 else
@@ -115,11 +118,7 @@ if exit ;then
 else
     echo "\n ---- exited failed ---- \n"
 fi
-else
-    echo "\n ---- user not changed ----\n"
-    exit
-fi
-EOF
+
 if echo "$odoo_conf" | sudo tee "$odoo" > /dev/null ;then
         echo "\n ---- conf file created successfully ----\n" 
 else
