@@ -85,6 +85,7 @@ if git clone https://github.com/odoo/odoo.git --depth 1 --branch 16.0 odoo16 ;th
     echo "\n ---- cloned successfully ---- \n"
 else
     echo "\n ---- cloned failed ---- \n"
+fi
 if python3 -m venv odoo16-venv ;then
     echo "\n ---- python3 completed ----\n"
 else
@@ -114,6 +115,7 @@ if sudo mkdir /opt/odoo16/odoo16/custom-addons ;then
     echo "\n ---- Directory created Successfully ---- \n"
 else
     echo "\n ---- Directory creation failed ---- \n"
+fi
 if exit ;then
     echo "\n ---- exit successfully ---- \n"
 else
