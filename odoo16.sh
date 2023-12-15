@@ -79,6 +79,11 @@ if sudo chown -R odoo16 /opt/odoo16 ;then
 else
     echo "\n permission denied \n"
 fi
+if sudo mkdir /opt/odoo16/odoo16/custom-addons ;then
+    echo "\n ---- Directory created Successfully ---- \n"
+else
+    echo "\n ---- Directory creation failed ---- \n"
+fi
 sudo su - odoo16 <<EOF
 
 if git clone https://github.com/odoo/odoo.git --depth 1 --branch 16.0 odoo16 ;then
@@ -111,11 +116,7 @@ if deactivate ;then
 else
     echo "\n ---- Deactivated failed ---- \n"
 fi
-if sudo mkdir /opt/odoo16/odoo16/custom-addons ;then
-    echo "\n ---- Directory created Successfully ---- \n"
-else
-    echo "\n ---- Directory creation failed ---- \n"
-fi
+
 if exit ;then
     echo "\n ---- exit successfully ---- \n"
 else
