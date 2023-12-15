@@ -80,7 +80,7 @@ else
     echo "\n permission denied \n"
 fi
 sudo su - odoo16 <<EOF
-fi
+
 if git clone https://github.com/odoo/odoo.git --depth 1 --branch 16.0 odoo16 ;then
     echo "\n ---- cloned successfully ---- \n"
 else
