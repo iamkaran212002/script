@@ -1,0 +1,11 @@
+import math as mt
+print(mt.sqrt(10))
+print(mt.pi)
+print(mt.pow(2,3))
+print(mt.e)
+print(mt.fabs(-1))
+print(mt.factorial(14))
+print(mt.ceil(2.0999))
+print(mt.floor(2.999))
+print(mt.log2(2))
+print(mt.log10(20))
